@@ -261,11 +261,7 @@ fieldset
 </style>
 </head>
 <body>
-	<div style="display:block;text-align:center;margin-top:20px;">
-	System
-	</div>
-	<a href="${pageContext.request.contextPath}/home">Home</a>
-	<form id="login" method="post" action="">
+	<form id="login" method="post" action="${pageContext.request.contextPath}/home">
 		<h1>Log In</h1>
 		<fieldset id="inputs">
 			<input id="username" name="user_id" type="text" style="ime-mode:disabled;" placeholder="Username" autocomplete="off" autofocus required>
