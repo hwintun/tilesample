@@ -15,7 +15,6 @@ import tilesample.customer.Customer;
 import tilesample.customer.CustomerDAO;
 
 @Controller
-@RequestMapping("/c/")
 public class CustomerController {
 
 	@Autowired
@@ -31,8 +30,10 @@ public class CustomerController {
 	
 	@RequestMapping(value="/c/saveCustomer", method=RequestMethod.POST)
 	public ModelAndView saveCustomer(@ModelAttribute Customer customer) {
-		customerDao.insertCustomer(customer);
-		return new ModelAndView("redirect:/c/viewCustomer");
+		//customerDao.insertCustomer(customer);
+		//return new ModelAndView("redirect:/c/viewCustomer");
+		System.out.println(customer.toString());
+		return null;
 	}
 	
 	@RequestMapping(value="/c/deleteCustomer", method=RequestMethod.GET)

@@ -32,6 +32,12 @@ public class Customer {
 	public void setCustomerContactNo(String customerContactNo) {
 		this.customerContactNo = customerContactNo;
 	}
+
+	@Override
+	public String toString() {
+		
+		return "Customer Name : " + this.customerName;
+	}
 	
-	
+
 }

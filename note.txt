@@ -1,0 +1,2 @@
+1. http://www.codejava.net/frameworks/spring/spring-mvc-with-jdbctemplate-example
+2. http://www.onlinetutorialspoint.com/spring/spring-jdbctemplate-crud-application.html
