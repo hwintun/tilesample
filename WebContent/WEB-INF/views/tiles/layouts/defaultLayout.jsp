@@ -11,20 +11,20 @@
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
 <body>
-	<header id="header">
+	<div id="header">
 		<tiles:insertAttribute name="header" />
-	</header>
+	</div>
 	
-	<section id="sidemenu">
+	<div id="sidemenu" style="float:left;padding:10px;width:15%;">
 		<tiles:insertAttribute name="menu" />
-	</section>
+	</div>
 	
-	<section id="site-content">
+	<div id="site-content" style="float:left;padding:10px;width:80%;border-left:1px solid pink;">
 		<tiles:insertAttribute name="body" />
-	</section>
+	</div>
 	
-	<section id="footer">
+	<div id="footer">
 		<tiles:insertAttribute name="footer" />
-	</section>	
+	</div>	
 </body>
 </html>
