@@ -31,7 +31,7 @@ public class CustomerController {
 	@RequestMapping(value="/c/saveCustomer", method=RequestMethod.POST)
 	public ModelAndView saveCustomer(@ModelAttribute Customer customer) {
 		//customerDao.insertCustomer(customer);
-		//return new ModelAndView("redirect:/c/viewCustomer");
+		//return new ModelAndView("redirect:/c/listCustomer");
 		System.out.println(customer.toString());
 		return null;
 	}
