@@ -30,16 +30,16 @@ public class CustomerController {
 	
 	@RequestMapping(value="/c/saveCustomer", method=RequestMethod.POST)
 	public ModelAndView saveCustomer(@ModelAttribute Customer customer) {
-		//customerDao.insertCustomer(customer);
-		//return new ModelAndView("redirect:/c/listCustomer");
-		System.out.println(customer.toString());
-		return null;
+		customerDao.saveOrUpdateControl(customer);
+		return new ModelAndView("redirect:/c/listCustomer");
+		//System.out.println(customer.toString());
+		//return null;
 	}
 	
 	@RequestMapping(value="/c/deleteCustomer", method=RequestMethod.GET)
 	public ModelAndView deleteCustomer(HttpServletRequest servlet) {
 		customerDao.deleteCustomer(Integer.parseInt(servlet.getParameter("id")));
-		return new ModelAndView("redirect:/c/viewCustomer");
+		return new ModelAndView("redirect:/c/listCustomer");
 	}
 	
 	@RequestMapping(value="/c/updateCustomer", method=RequestMethod.GET)
@@ -47,14 +47,14 @@ public class CustomerController {
 		Customer customer = customerDao.selectCustomer(Integer.parseInt(servlet.getParameter("id")));
 		ModelAndView model = new ModelAndView("customerForm");
 		model.addObject("customer", customer);
-		return new ModelAndView("redirect:/c/viewCustomer");
+		return model;
 	}
 	
 	@RequestMapping(value="/c/listCustomer", method=RequestMethod.GET)
 	public ModelAndView listCustomer(ModelAndView model) {
 		List<Customer> listCustomer = customerDao.listCustomer();
 		model.addObject("customerList", listCustomer);
-		model.setViewName("listCustomer");
+		model.setViewName("customerList");
 		return model;
 	}
 }

@@ -26,7 +26,23 @@ public class CustomerDAOImpl implements CustomerDAO {
 	public CustomerDAOImpl(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-
+	
+	//////////////////////////////////////////////////////////////////////////
+	//////////////////// PRIVATE METHODS - START /////////////////////////////
+	//////////////////////////////////////////////////////////////////////////
+	private int insertCustomer(Customer cust) {
+		String sql = "insert into customers (customer_id, customer_name, customer_phone, customer_address) values (?,?,?,?)";		
+		return jdbcTemplate.update(sql, cust.getCustomerId(), cust.getCustomerName(), cust.getCustomerContactNo(), cust.getCustomerAddress());
+	}
+	
+	private int updateCustomer(Customer cust) {
+		String sql = "update customers set customer_name=?, customer_phone=?, customer_address=? where customer_id=?";
+		return jdbcTemplate.update(sql, cust.getCustomerName(), cust.getCustomerContactNo(), cust.getCustomerAddress(), cust.getCustomerId());
+	}
+	//////////////////////////////////////////////////////////////////////////
+	//////////////////// PRIVATE METHODS - END ///////////////////////////////
+	//////////////////////////////////////////////////////////////////////////
+	
 	@Override
 	public Customer selectCustomer(int customerId) {
 		final Customer c = new Customer();
@@ -38,7 +54,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 				if(rs.next()) {
 					c.setCustomerId(rs.getInt("customer_id"));
 					c.setCustomerName(rs.getString("customer_name"));
-					c.setCustomerContactNo(rs.getString("customer_phnoe_no"));
+					c.setCustomerContactNo(rs.getString("customer_phone"));
 					c.setCustomerAddress(rs.getString("customer_address"));
 					return c;
 				}
@@ -49,22 +65,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public int insertCustomer(Customer cust) {
-		String sql = "insert into customers (customer_id, customer_name, customer_phone_no, customer_address) values (?,?,?,?)";		
-		return jdbcTemplate.update(sql, cust.getCustomerId(), cust.getCustomerName(), cust.getCustomerContactNo(), cust.getCustomerAddress());
-	}
-
-	@Override
 	public int deleteCustomer(int customerId) {
 		String sql = "delete from customers where customer_id=?";		
 		return jdbcTemplate.update(sql, customerId);
 	}
 
-	@Override
-	public int updateCustomer(Customer cust) {
-		String sql = "update customers set customer_name=?, customer_phone_no=?, customer_address=? where customer_id=?";
-		return jdbcTemplate.update(sql, cust.getCustomerName(), cust.getCustomerContactNo(), cust.getCustomerAddress(), cust.getCustomerId());
-	}
+
 
 	@Override
 	public List<Customer> listCustomer() {
@@ -76,12 +82,21 @@ public class CustomerDAOImpl implements CustomerDAO {
 				Customer c = new Customer();
 				c.setCustomerId(rs.getInt("customer_id"));
 				c.setCustomerName(rs.getString("customer_name"));
-				c.setCustomerContactNo(rs.getString("customer_phnoe_no"));
+				c.setCustomerContactNo(rs.getString("customer_phone"));
 				c.setCustomerAddress(rs.getString("customer_address"));
 				return c;
 			}			
 		});
 		return customerList;
+	}
+
+	@Override
+	public int saveOrUpdateControl(Customer cust) {
+		if(cust.getCustomerId() > 0) {
+			return updateCustomer(cust);
+		} else {
+			return insertCustomer(cust);
+		}
 	}
 
 }
