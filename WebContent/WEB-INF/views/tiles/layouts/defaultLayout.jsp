@@ -15,11 +15,11 @@
 		<tiles:insertAttribute name="header" />
 	</div>
 	
-	<div id="sidemenu" style="float:left;padding:10px;width:15%;">
+	<div id="sidemenu">
 		<tiles:insertAttribute name="menu" />
 	</div>
 	
-	<div id="site-content" style="float:left;padding:10px;width:80%;border-left:1px solid pink;">
+	<div id="site-content">
 		<tiles:insertAttribute name="body" />
 	</div>
 	

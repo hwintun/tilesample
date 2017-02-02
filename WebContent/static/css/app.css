@@ -9,16 +9,15 @@ body{
 
 
 #header {
-    margin-left:20%;
+	left:10%;
+	right:10%;
     top: 0px;
     width: 80%;
-	height: 20%;
+	height: 100px;
 	position: fixed;
 	font-family: 'bgMed',arial,helvetica,sans-serif;
-    font-size: 0.6em;
     color: #fff;
     z-index: 15;
-    text-transform: uppercase;
     background-color: #272727;
     border-bottom: 2px solid hsl(180,70%,55%);
     padding-top:20px;
@@ -26,11 +25,11 @@ body{
 }
 
 #footer {
-	margin-left:20%;
-    left: 0px;
+	left:10%;
+	right:10%;
     bottom: 0px;
     width: 80%;
-	height: 10%;
+	height: 57px;
 	position: fixed;
 	font-family: 'bgMed',arial,helvetica,sans-serif;
     font-size: 0.6em;
@@ -44,20 +43,21 @@ body{
 
 
 #sidemenu {
-    width: 20%;
+	left: 10%;
+	top: 100px;
+    width: 15%;
     background-color:#2B2B2B;
-    height: 100%;
+    height: 84%;
     overflow: auto;
     float: left;
     z-index: 20;
     position: fixed;
-    left: 0px;
     margin-top:
 }
 
 #sidemenu #menu {
     color: #fff;
-    text-align: right;
+    text-align: left;
     list-style-type: none;
     margin-right: 40px;
     float: right;
@@ -90,16 +90,18 @@ body{
 }
 
 #site-content {
-    width: 80%;
+	top:100px;
+	left:25%;
+    width: 45%;
     height: 100%;
     overflow: auto;
     float: left;
     z-index: 20;
     position: fixed;
     min-height: 600px;
-    margin-top:10%;
+    margin-top:3%;
     margin-bottom:10%;
-    margin-left:20%;
+    margin-left:5%;
     padding-left:10px;
 }
     
