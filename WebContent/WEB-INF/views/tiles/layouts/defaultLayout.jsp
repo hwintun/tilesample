@@ -11,7 +11,7 @@
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
 </head>
 <body>
-	<div id="header">
+	<div id="header" class="panel panel-default">
 		<tiles:insertAttribute name="header" />
 	</div>
 	
@@ -23,7 +23,7 @@
 		<tiles:insertAttribute name="body" />
 	</div>
 	
-	<div id="footer">
+	<div id="footer" class="panel panel-default">
 		<tiles:insertAttribute name="footer" />
 	</div>	
 </body>

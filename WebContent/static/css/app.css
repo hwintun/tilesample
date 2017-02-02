@@ -4,7 +4,7 @@ html{
 
 body{
 	height: 100%;
-	background-color:rgb(245, 245, 245);
+	background-color:rgb(208, 229, 241);
 }
 
 
@@ -19,7 +19,7 @@ body{
     color: #fff;
     z-index: 15;
     background-color: #272727;
-    border-bottom: 2px solid hsl(180,70%,55%);
+    border-bottom: 2px solid hsl(0, 100%, 50%);
     padding-top:20px;
     text-align:center;
 }
@@ -39,27 +39,28 @@ body{
     background-color: #272727;
 	padding-top:20px;   
     text-align:center;
+    margin-bottom: 0px;
+    border-bottom: 2px solid hsl(0, 100%, 50%); 
 }
 
 
 #sidemenu {
 	left: 10%;
 	top: 100px;
-    width: 15%;
-    background-color:#2B2B2B;
+    width: 200px;
     height: 84%;
     overflow: auto;
     float: left;
     z-index: 20;
     position: fixed;
-    margin-top:
+    text-align: left;
 }
 
 #sidemenu #menu {
     color: #fff;
     text-align: left;
     list-style-type: none;
-    margin-right: 40px;
+    
     float: right;
 }
 
@@ -73,16 +74,18 @@ body{
 #sidemenu #menu li a {
     text-decoration: none;
     text-transform: uppercase;
-    color: #fff;
+    color: #272727;
 }
 
 #sidemenu #menu li:active{
+	color: #ffffff;
 	border-left: 5px solid hsl(180,70%,55%);
 }
 
 #sidemenu #menu li:hover {
     background-color: #635555;
     border-left: 5px solid hsl(180,70%,55%);
+    
 }
 
 .logo{
@@ -92,7 +95,7 @@ body{
 #site-content {
 	top:100px;
 	left:25%;
-    width: 45%;
+    width: 60%;
     height: 100%;
     overflow: auto;
     float: left;
