@@ -10,4 +10,6 @@ public interface ItemDAO {
 	public int saveOrUpdateItem(Item item);
 	
 	public int deleteItem(String itemId);
+	
+	public int deleteItem(String itemId, boolean remove);
 }

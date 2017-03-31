@@ -91,9 +91,16 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public int deleteItem(String itemId) {
+	public int deleteItem(String itemId, boolean remove) {
+		if(!remove) 
+			return deleteItem(itemId);
 		String sql = "delete from items where item_id=?";		
 		return jdbcTemplate.update(sql, itemId);
 	}
 
+	@Override
+	public int deleteItem(String itemId) {
+		String sql = "update items set delete_flag = 1 where item_id=?";
+		return jdbcTemplate.update(sql, itemId);
+	}
 }
