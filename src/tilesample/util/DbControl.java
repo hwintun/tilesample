@@ -33,9 +33,4 @@ public class DbControl {
 		return jdbcTemplate.update(builder.toString(), value);
 	}
 	
-	public void insert() {
-		
-		String sql = "insert into table_name () values ()";
-	}
-	
 }
