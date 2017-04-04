@@ -34,12 +34,17 @@ public class ItemDAOImpl implements ItemDAO {
 		String sql = "update items set item_code=?, item_name=?, item_description=?, retail_price=?, item_weight=? where item_id=?";
 		return jdbcTemplate.update(item.getItemCode(), item.getItemName(), item.getItemDescription(), item.getRetailPrice(), item.getItemWeight(), sql, item.getItemId());
 	}
+
+	private int deleteItem(int itemId) {
+		String sql = "update items set delete_flag = 1 where item_id=?";
+		return jdbcTemplate.update(sql, itemId);
+	}
 	//////////////////////////////////////////////////////////////////////////
 	//////////////////// PRIVATE METHODS - END ///////////////////////////////
 	//////////////////////////////////////////////////////////////////////////
 	
 	@Override
-	public Item selectItem(String itemId) {
+	public Item selectItem(int itemId) {
 		final Item item = new Item();
 		String sql = "select * from items where item_id=" + itemId;
 		
@@ -91,16 +96,10 @@ public class ItemDAOImpl implements ItemDAO {
 	}
 
 	@Override
-	public int deleteItem(String itemId, boolean remove) {
+	public int deleteItem(int itemId, boolean remove) {
 		if(!remove) 
 			return deleteItem(itemId);
 		String sql = "delete from items where item_id=?";		
-		return jdbcTemplate.update(sql, itemId);
-	}
-
-	@Override
-	public int deleteItem(String itemId) {
-		String sql = "update items set delete_flag = 1 where item_id=?";
 		return jdbcTemplate.update(sql, itemId);
 	}
 }
