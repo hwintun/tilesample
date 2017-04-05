@@ -1,2 +1,6 @@
 1. http://www.codejava.net/frameworks/spring/spring-mvc-with-jdbctemplate-example
 2. http://www.onlinetutorialspoint.com/spring/spring-jdbctemplate-crud-application.html
+3. https://www.mkyong.com/spring-mvc/spring-mvc-form-handling-example/
+4. https://www.javacodegeeks.com/2013/04/spring-mvc-form-validation-with-annotations-2.html
+5. http://www.journaldev.com/2668/spring-validation-example-mvc-validator
+6. https://www.javacodegeeks.com/2012/02/spring-mvc-and-jquery-for-ajax-form.html

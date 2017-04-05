@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -35,7 +36,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 		registry.viewResolver(tilesViewResolver);
 	}
 	
-	
+	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
 	}
@@ -53,6 +54,13 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public CustomerDAO getCustomerDAO() {
 		return new CustomerDAOImpl(getDataSource());
+	}
+	
+	@Bean
+	public ResourceBundleMessageSource messageSource() {
+		ResourceBundleMessageSource rb = new ResourceBundleMessageSource();
+		rb.setBasenames(new String[] { "messages/messages", "messages/validation" });
+		return rb;
 	}
 	
 	/*  @Override
