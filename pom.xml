@@ -11,6 +11,11 @@
         <apachetiles.version>3.0.5</apachetiles.version>
   </properties>
   <dependencies>
+	 <dependency>
+	     <groupId>org.apache.derby</groupId>
+	     <artifactId>derby</artifactId>
+	     <version>10.13.1.1</version>
+	 </dependency>
 	 <!-- Spring -->
      <dependency>
          <groupId>org.springframework</groupId>
