@@ -47,8 +47,8 @@ public class UserDaoImpl implements UserDAO {
 
 	@Override
 	public void save(User user) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into customers (customer_id, customer_name, customer_phone, customer_address) values (?,?,?,?)";		
+		jdbcTemplate.update(sql, user.getId()et, user.getName(), user.getPassword(), user.getConfirmPassword(), user.getEmail(), user.getAddress(), user.getSex());		
 	}
 
 	@Override

@@ -9,6 +9,8 @@
   <properties>
         <springframework.version>4.2.6.RELEASE</springframework.version>
         <apachetiles.version>3.0.5</apachetiles.version>
+        <logback.version>1.2.3</logback.version>
+		<jcl.slf4j.version>1.7.25</jcl.slf4j.version>
   </properties>
   <dependencies>
 	 <dependency>
@@ -21,6 +23,12 @@
          <groupId>org.springframework</groupId>
          <artifactId>spring-core</artifactId>
          <version>${springframework.version}</version>
+         <exclusions>
+		    <exclusion>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+			</exclusion>
+		</exclusions>
      </dependency>
      <dependency>
          <groupId>org.springframework</groupId>
@@ -32,6 +40,18 @@
          <artifactId>spring-webmvc</artifactId>
          <version>${springframework.version}</version>
      </dependency>
+     <!-- logging -->
+	 <dependency>
+		 <groupId>org.slf4j</groupId>
+		 <artifactId>jcl-over-slf4j</artifactId>
+		 <version>${jcl.slf4j.version}</version>
+	 </dependency>
+
+     <dependency>
+	     <groupId>ch.qos.logback</groupId>
+		 <artifactId>logback-classic</artifactId>
+		 <version>${logback.version}</version>
+	 </dependency>
      <!-- Spring JDBC Support -->
      <dependency>
          <groupId>org.springframework</groupId>
